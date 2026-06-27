@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Painted Skin | Yuqing LIU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    :root {
+      --main-color: #23293a;
+      --accent-color: #2257a5;
+      --bg-color: #f7f9fa;
+      --border-color: #e4e4e4;
+      --section-bg: #fff;
+      --soft-bg: #f3f6fb;
+      --body-size: 16px;
+      --meta-size: 15px;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-color);
+      color: var(--main-color);
+      margin: 0;
+      padding: 0;
+      font-size: var(--body-size);
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 36px auto;
+      background: var(--section-bg);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 40px 36px 44px 36px;
+    }
+
+    .top-nav {
+      text-align: right;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    .work-hero {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .poster {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.16);
+    }
+
+    .work-title {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--accent-color);
+      font-size: 2em;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .work-meta {
+      color: #666;
+      font-size: var(--meta-size);
+      margin-bottom: 18px;
+    }
+
+    .intro {
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
+    .section-block {
+      margin: 34px 0;
+    }
+
+    .section-heading {
+      font-size: 1.25em;
+      color: var(--accent-color);
+      margin: 0 0 14px 0;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 4px;
+    }
+
+    .reel-embed {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .instagram-media {
+      background: #fff;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      margin: 1px auto;
+      max-width: 540px;
+      min-width: 326px;
+      padding: 0;
+      width: 100%;
+    }
+
+    .fallback-link {
+      text-align: center;
+      margin-top: 12px;
+      font-size: var(--meta-size);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .info-card {
+      background: var(--soft-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .info-card h3 {
+      color: var(--accent-color);
+      margin: 0 0 10px 0;
+      font-size: 1.05em;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        margin: 16px auto;
+        padding: 22px 16px 28px 16px;
+        border-radius: 0;
+      }
+
+      .top-nav {
+        text-align: left;
+      }
+
+      .work-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .poster {
+        max-width: 360px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-nav">
+      <a href="index.html">CV</a> |
+      <a href="works.html">Creative Works</a>
+    </div>
+
+    <section id="painted-skin">
+      <div class="work-hero">
+        <div>
+          <img src="painted_skin_poster.jpg" alt="Poster of Painted Skin" class="poster">
+        </div>
+
+        <div>
+          <h1 class="work-title"><i>Painted Skin</i> 《画皮》</h1>
+
+          <div class="work-meta">
+            AI-generated experimental short film, 2026<br>
+            Co-directors: Jintao Sun and Yuqing Liu<br>
+            Sound Design: Wangqian Zhou
+          </div>
+
+          <p class="intro">
+            <i>Painted Skin</i> is an AI-generated experimental short film that reimagines the classical Chinese motif of painted skin through contemporary image-making technologies. Moving between beauty, disguise, desire, and transformation, the work explores how the surface of the body becomes a site of fantasy, projection, and visual instability.
+          </p>
+
+          <p class="intro">
+            The work has circulated primarily on Douyin and Xiaohongshu, receiving over 2 million views and 160,000 engagements across online platforms. It was created in connection with the Xiaohongshu-initiated Short Film Hot AI Training Camp, for which Yuqing Liu served as an invited initiator.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2 class="section-heading">Video</h2>
+
+        <div class="reel-embed">
+          <blockquote 
+            class="instagram-media" 
+            data-instgrm-captioned 
+            data-instgrm-permalink="https://www.instagram.com/reel/DaCIHmWueU9/?utm_source=ig_web_copy_link&amp;igsh=NTc4MTIwNjQ2YQ==" 
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="fallback-link">
+          <a href="https://www.instagram.com/reel/DaCIHmWueU9/?utm_source=ig_web_copy_link&amp;igsh=NTc4MTIwNjQ2YQ==" target="_blank">
+            View on Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3>Public Reception</h3>
+          <ul>
+            <li>Over 2 million views across Douyin and Xiaohongshu, 2026.</li>
+            <li>Over 160,000 engagements across online platforms, 2026.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>Platform and Program</h3>
+          <ul>
+            <li>Circulated primarily on Douyin and Xiaohongshu, 2026.</li>
+            <li>Xiaohongshu-initiated Short Film Hot AI Training Camp, 2026.</li>
+            <li>Yuqing Liu served as an invited initiator of the program.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
