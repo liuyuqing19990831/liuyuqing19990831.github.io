@@ -57,6 +57,54 @@
 .top-nav a:hover {
   text-decoration: underline;
 }
+    .dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.dropdown-toggle::after {
+  content: " ▾";
+  font-size: 0.85em;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 999;
+  text-align: left;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 8px 14px;
+  color: var(--accent-color);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f3f6fb;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
     .header-info {
       flex: 2 1 320px;
       min-width: 240px;
@@ -192,9 +240,15 @@
   <div class="container">
 
     <div class="top-nav">
-      <a href="index.html">CV</a> |
-      <a href="works.html">Creative Works</a>
+  <a href="index.html">CV</a> |
+  <div class="dropdown">
+    <span class="dropdown-toggle">Creative Works</span>
+    <div class="dropdown-menu">
+      <a href="peony.html">The Tale of the Peony</a>
+      <a href="painted-skin.html">Painted Skin</a>
     </div>
+  </div>
+</div>
 
     <div class="header">
       <div class="header-info">
