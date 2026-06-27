@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creative Works | Yuqing LIU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    :root {
+      --main-color: #23293a;
+      --accent-color: #2257a5;
+      --bg-color: #f7f9fa;
+      --border-color: #e4e4e4;
+      --section-bg: #fff;
+      --soft-bg: #f3f6fb;
+      --body-size: 16px;
+      --meta-size: 15px;
+    }
+
+    body {
+      font-family: 'Noto Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-color);
+      color: var(--main-color);
+      margin: 0;
+      padding: 0;
+      font-size: var(--body-size);
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 36px auto;
+      background: var(--section-bg);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 40px 36px 44px 36px;
+    }
+
+    .top-nav {
+      text-align: right;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .work-card {
+      background: var(--soft-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .work-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .work-card h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.25em;
+      color: var(--accent-color);
+    }
+
+    .work-meta {
+      color: #666;
+      font-size: var(--meta-size);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        margin: 16px auto;
+        padding: 22px 16px 28px 16px;
+        border-radius: 0;
+      }
+
+      .top-nav {
+        text-align: left;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-nav">
+      <a href="index.html">CV</a> |
+      <a href="works.html">Creative Works</a>
+    </div>
+
+    <h1>Creative Works</h1>
+
+    <div class="works-grid">
+
+      <div class="work-card">
+        <a href="peony.html">
+          <img src="peony_poster.png" alt="Poster of The Tale of the Peony">
+        </a>
+        <h2>
+          <a href="peony.html"><i>The Tale of the Peony</i> 《牡丹记》</a>
+        </h2>
+        <div class="work-meta">
+          AI-generated experimental short film, 2026<br>
+          Co-directors: Yuqing Liu and Jintao Sun<br>
+          Sound Design: Wangqian Zhou
+        </div>
+        <p>
+          An AI-generated experimental short film inspired by the life of the late Tang dynasty poet Yu Xuanji.
+        </p>
+      </div>
+
+      <div class="work-card">
+        <a href="painted-skin.html">
+          <img src="painted_skin_poster.jpg" alt="Poster of Painted Skin">
+        </a>
+        <h2>
+          <a href="painted-skin.html"><i>Painted Skin</i> 《画皮》</a>
+        </h2>
+        <div class="work-meta">
+          AI-generated experimental short film, 2026<br>
+          Co-directors: Jintao Sun and Yuqing Liu<br>
+          Sound Design: Wangqian Zhou
+        </div>
+        <p>
+          An AI-generated experimental short film circulated primarily on Douyin and Xiaohongshu.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
