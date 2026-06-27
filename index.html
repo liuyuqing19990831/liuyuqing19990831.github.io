@@ -66,6 +66,10 @@
   cursor: pointer;
   color: var(--accent-color);
   font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
 }
 
 .dropdown-toggle::after {
@@ -102,7 +106,7 @@
   text-decoration: none;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:focus-within .dropdown-menu {
   display: block;
 }
     .header-info {
@@ -239,11 +243,13 @@
 <body>
   <div class="container">
 
-    <div class="top-nav">
+   <div class="top-nav">
   <a href="index.html">CV</a> |
   <div class="dropdown">
-    <span class="dropdown-toggle">Creative Works</span>
-    <div class="dropdown-menu">
+    <button class="dropdown-toggle" onclick="toggleDropdown(event)">
+      Creative Works
+    </button>
+    <div class="dropdown-menu" id="worksDropdown">
       <a href="peony.html">The Tale of the Peony</a>
       <a href="painted-skin.html">Painted Skin</a>
     </div>
