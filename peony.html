@@ -339,5 +339,22 @@
     </section>
 
   </div>
+<script>
+  function toggleDropdown(event) {
+    event.stopPropagation();
+
+    const menu = document.getElementById("worksDropdown");
+
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  }
+
+  document.addEventListener("click", function () {
+    document.getElementById("worksDropdown").style.display = "none";
+  });
+</script>
 </body>
 </html>
