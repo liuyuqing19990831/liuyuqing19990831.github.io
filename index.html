@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yuqing LIU | Academic CV</title>
+  <title>Yuqing LIU | Digital Artist, Poet & PhD Candidate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
       --main-color: #23293a;
       --accent-color: #2257a5;
-      --bg-color: #f7f9fa;
+      --bg-color: #ffffff;
       --border-color: #e4e4e4;
       --section-bg: #fff;
       --title-size: 1.6em;
@@ -26,12 +27,14 @@
       letter-spacing: 0.01em;
     }
     .container {
-      max-width: 860px;
-      margin: 36px auto;
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
       background: var(--section-bg);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      border-radius: 10px;
-      padding: 38px 30px 32px 30px;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 42px clamp(22px, 6vw, 96px) 56px;
+      box-sizing: border-box;
     }
     .header {
       display: flex;
@@ -232,13 +235,244 @@
       margin-bottom: 10px;
     }
     @media (max-width: 900px) {
-      .container { padding: 14px 14px; }
+      .container { padding: 22px 18px 36px; }
       .header { flex-direction: column; gap: 8px; }
       .header-photo { align-items: flex-start; }
       .bio-block { max-width: 100%; }
       .award-list { columns: 1; }
     }
-  </style>
+  
+
+/* ===== Personal homepage redesign ===== */
+:root {
+  --main-color:#20242d;
+  --accent-color:#7b3f61;
+  --accent-2:#b76e79;
+  --bg-color:#f6f1ed;
+  --border-color:rgba(90,62,72,.14);
+  --section-bg:rgba(255,255,255,.88);
+  --muted:#6f6870;
+  --shadow:0 18px 60px rgba(72,48,59,.10);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(183,110,121,.14), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(123,63,97,.10), transparent 24%),
+    linear-gradient(180deg,#fbf8f5 0%,#f4efeb 100%);
+  color:var(--main-color);
+}
+a{color:var(--accent-color);text-decoration:none;}
+a:hover{color:#4f2940;}
+.container{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0 clamp(24px,6vw,96px) 56px;
+  border:0;
+  box-shadow:none;
+  border-radius:0;
+  overflow:hidden;
+  backdrop-filter:blur(14px);
+}
+.top-nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  margin:0 calc(-1 * clamp(24px,6vw,96px)) 34px;
+  padding:16px clamp(24px,6vw,96px);
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,.82);
+  border-bottom:1px solid var(--border-color);
+  backdrop-filter:blur(18px);
+}
+.top-nav a,.dropdown-toggle{font-size:14px;letter-spacing:.04em;}
+.header{
+  align-items:center;
+  gap:48px;
+  min-height:390px;
+  margin-bottom:8px;
+  padding:34px 10px 46px;
+  border-bottom:0;
+}
+.header-info{max-width:700px;}
+.header-info:before{
+  content:'RESEARCHER · DIGITAL ARTIST · POET';
+  display:inline-block;
+  margin-bottom:18px;
+  color:var(--accent-2);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+}
+h1{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(3rem,7vw,5.7rem);
+  line-height:.95;
+  margin-bottom:18px;
+  color:#25212a;
+  letter-spacing:-.045em;
+}
+.subtitle{
+  font-size:1.2rem;
+  color:var(--accent-color);
+  font-weight:700;
+  margin-bottom:14px;
+}
+.header-info>div:last-child{color:var(--muted);line-height:1.8!important;}
+.header-photo{flex:0 0 250px;}
+.profile-photo{
+  width:240px;
+  height:300px;
+  border-radius:120px 120px 24px 24px;
+  border:8px solid rgba(255,255,255,.8);
+  box-shadow:0 24px 50px rgba(84,51,67,.18);
+}
+section{
+  margin:18px 0;
+  padding:28px 30px;
+  background:rgba(255,255,255,.68);
+  border:1px solid var(--border-color);
+  border-radius:18px;
+}
+h2{
+  margin:0 0 22px;
+  padding:0;
+  border:0;
+  color:#2e2730;
+  font-size:1.02rem;
+  letter-spacing:.13em;
+  position:relative;
+}
+h2:after{
+  content:'';
+  display:block;
+  width:42px;
+  height:3px;
+  margin-top:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--accent-color),var(--accent-2));
+}
+.section-title{font-family:Georgia,'Times New Roman',serif;font-size:1.35rem;color:#352b34;margin-top:24px;}
+.meta-small{color:var(--muted);}
+.edu-row{gap:20px;align-items:baseline;}
+.edu-row .meta-small{white-space:nowrap;}
+li{margin-bottom:9px;}
+.pub-list li,.poetry-list li,.conf-list li{margin-bottom:13px;}
+.award-list{columns:2 380px;}
+.skills-list>div{
+  flex:1 1 300px;
+  padding:18px;
+  background:#fbf8f6;
+  border:1px solid var(--border-color);
+  border-radius:14px;
+}
+.label{font-size:1em;display:block;margin-bottom:6px;}
+.dropdown-menu{border-radius:14px;box-shadow:0 16px 40px rgba(51,34,44,.16);}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.hero-actions a{display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;font-size:14px;font-weight:700;}
+.hero-actions .primary{background:var(--accent-color);color:#fff;}
+.hero-actions .secondary{background:#fff;border:1px solid var(--border-color);color:var(--accent-color);}
+.research-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.research-tags span{padding:7px 12px;border-radius:999px;background:#f4e9ec;color:#62364f;font-size:14px;font-weight:600;}
+@media(max-width:900px){
+  body{font-size:15px;line-height:1.68;}
+  .container{width:100%;margin:0;padding:0 16px 30px;border-radius:0;}
+  .top-nav{margin:0 -16px 18px;padding:13px 16px;justify-content:center;}
+  .header{min-height:auto;padding:18px 2px 28px;gap:18px;flex-direction:column-reverse;align-items:flex-start;}
+  .header-info{width:100%;min-width:0;}
+  .header-info:before{margin-bottom:11px;font-size:10px;line-height:1.5;letter-spacing:.13em;}
+  .header-photo{align-items:flex-start;width:100%;min-width:0;flex-basis:auto;}
+  .profile-photo{width:118px;height:148px;border-width:5px;border-radius:70px 70px 18px 18px;}
+  h1{font-size:clamp(2.65rem,15vw,3.55rem);margin-bottom:10px;}
+  .subtitle{font-size:1.05rem;margin-bottom:10px;}
+  .header-info>div:last-child{font-size:13.5px!important;line-height:1.65!important;overflow-wrap:anywhere;}
+  section{margin:12px 0;padding:20px 16px;border-radius:14px;}
+  h2{font-size:.94rem;margin-bottom:18px;}
+  .section-title{font-size:1.2rem;}
+  .edu-row{display:block!important;}
+  .edu-row .meta-small{margin:2px 0 6px 22px;white-space:normal;}
+  .pub-list,.poetry-list,.conf-list,.exp-list{padding-left:20px;}
+  .skills-list{gap:12px;}
+  .skills-list>div{min-width:0;padding:15px;}
+  .dropdown-menu{right:50%;transform:translateX(50%);min-width:min(220px,calc(100vw - 32px));}
+}
+
+
+/* ===== Header photo layout refinement ===== */
+.header{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  align-items:center;
+  column-gap:clamp(36px,6vw,88px);
+  min-height:340px;
+  padding:42px 2px 48px;
+}
+.header-info{
+  width:100%;
+  max-width:760px;
+}
+.header-photo{
+  width:220px;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  justify-self:end;
+}
+.profile-photo{
+  display:block;
+  width:210px;
+  height:260px;
+  margin:0;
+  object-fit:cover;
+  object-position:center 22%;
+  border-radius:22px;
+  border:1px solid rgba(123,63,97,.13);
+  box-shadow:0 18px 42px rgba(84,51,67,.16);
+}
+@media(max-width:900px){
+  .header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:24px 2px 30px;
+    text-align:center;
+  }
+  .header-photo{
+    order:1;
+    width:100%;
+    justify-self:auto;
+    align-items:center;
+    justify-content:center;
+  }
+  .header-info{
+    order:2;
+    width:100%;
+    text-align:center;
+  }
+  .profile-photo{
+    width:132px;
+    height:164px;
+    border-radius:16px;
+    object-position:center 22%;
+  }
+  .header-info:before{
+    display:block;
+  }
+}
+@media(max-width:520px){
+  .profile-photo{
+    width:116px;
+    height:144px;
+  }
+}
+
+</style>
 </head>
 <body>
   <div class="container">
@@ -259,12 +493,13 @@
     <div class="header">
       <div class="header-info">
         <h1>Yuqing LIU</h1>
-        <div class="subtitle">PhD student</div>
+        <div class="subtitle">PhD Candidate</div>
       <div style="font-size:15px;">
   School of Modern Languages and Cultures<br>
   Faculty of Arts<br>
   The University of Hong Kong<br>
   Email: <a href="mailto:liuyuqing990831@connect.hku.hk">liuyuqing990831@connect.hku.hk</a>
+
 </div>
 
       </div>
@@ -459,7 +694,9 @@ Youth Is More Beautiful than Cherry Blossoms
     <li>
       <strong>Liu, Yuqing.</strong>
       <span class="talk-title">
-        “Machine Vision: AI-Generated Images as an Aesthetic Experiment.”
+        <a href="https://mp.weixin.qq.com/s?search_click_id=15897483587556682258-1783811524688-3660534515&__biz=MzU5MzYxODU3OQ==&mid=2247667874&idx=1&sn=3eeaf6849e0a94eaea337e6af7ee9d3a&chksm=ff0529ea2ff68a624be00723f1e8d811f96e612c1e7f4653bdd6b4fac37e48534103e8b4a7e8&scene=7&sessionid=#rd" target="_blank" rel="noopener noreferrer">
+          “Machine Vision: AI-Generated Images as an Aesthetic Experiment.”
+        </a>
       </span>
       <span class="talk">
         <i>AI Capacity Enhancement Teacher Training Program</i>, School of Animation and Digital Arts, Communication University of China, Beijing, China, 24 June 2026.
