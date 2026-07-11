@@ -7,50 +7,90 @@
 
   <style>
     :root {
-      --main-color: #23293a;
-      --accent-color: #2257a5;
-      --bg-color: #f7f9fa;
-      --border-color: #e4e4e4;
-      --section-bg: #fff;
-      --soft-bg: #f3f6fb;
+      --text-color: #24211f;
+      --muted-color: #77706c;
+      --accent-color: #7b3138;
+      --accent-dark: #552126;
+      --background-color: #f7f3ee;
+      --section-color: #fffdf9;
+      --border-color: rgba(68, 50, 45, 0.14);
+      --soft-color: #eee5dd;
+      --shadow-color: rgba(54, 39, 34, 0.12);
       --body-size: 16px;
       --meta-size: 15px;
+      --page-padding: clamp(24px, 5vw, 76px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Noto Sans', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      background: var(--bg-color);
-      color: var(--main-color);
       margin: 0;
       padding: 0;
+      background: var(--background-color);
+      color: var(--text-color);
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
       font-size: var(--body-size);
-      line-height: 1.75;
+      line-height: 1.78;
       letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 600;
+      transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--accent-dark);
     }
 
-    .container {
-      max-width: 960px;
-      margin: 36px auto;
-      background: var(--section-bg);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-      border-radius: 12px;
-      padding: 40px 36px 44px 36px;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--section-color);
+    }
+
+    .top-nav-wrap {
+      width: 100%;
+      padding: 22px var(--page-padding) 0;
+      background: var(--section-color);
     }
 
     .top-nav {
-      text-align: right;
-      font-size: 15px;
-      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 11px;
+      max-width: 1280px;
+      margin: 0 auto;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-separator {
+      color: #b8aaa2;
+      font-weight: 400;
     }
 
     .dropdown {
@@ -59,236 +99,457 @@
     }
 
     .dropdown-toggle {
-      cursor: pointer;
+      appearance: none;
+      border: none;
+      background: none;
+      margin: 0;
+      padding: 8px 0;
       color: var(--accent-color);
+      font: inherit;
       font-weight: 600;
+      cursor: pointer;
     }
 
     .dropdown-toggle::after {
-      content: " ▾";
-      font-size: 0.85em;
+      content: "⌄";
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.9em;
+      transform: translateY(-1px);
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown.is-open .dropdown-toggle::after {
+      transform: rotate(180deg) translateY(-1px);
     }
 
     .dropdown-menu {
       display: none;
       position: absolute;
+      top: calc(100% + 8px);
       right: 0;
-      top: 100%;
-      background: #fff;
-      min-width: 220px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      z-index: 1000;
+      min-width: 230px;
+      padding: 8px;
+      background: rgba(255, 253, 249, 0.98);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 8px 0;
-      z-index: 999;
-      text-align: left;
+      border-radius: 12px;
+      box-shadow: 0 18px 42px var(--shadow-color);
+      backdrop-filter: blur(12px);
+    }
+
+    .dropdown.is-open .dropdown-menu {
+      display: block;
     }
 
     .dropdown-menu a {
       display: block;
-      padding: 8px 14px;
-      color: var(--accent-color);
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--text-color);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       white-space: nowrap;
     }
 
     .dropdown-menu a:hover {
-      background: var(--soft-bg);
-      text-decoration: none;
+      background: var(--soft-color);
+      color: var(--accent-color);
     }
 
-    .dropdown:hover .dropdown-menu {
-      display: block;
+    .work-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 44px var(--page-padding) 80px;
     }
 
     .work-hero {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 36px;
-      align-items: start;
-      margin-bottom: 34px;
+      grid-template-columns: minmax(260px, 390px) minmax(0, 1fr);
+      gap: clamp(38px, 7vw, 100px);
+      align-items: center;
+      min-height: calc(100vh - 130px);
+      padding: 38px 0 70px;
+    }
+
+    .poster-column {
+      position: relative;
+      width: 100%;
+      max-width: 390px;
+    }
+
+    .poster-column::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 100%;
+      height: 100%;
+      background: var(--soft-color);
+      border-radius: 4px;
     }
 
     .poster {
+      position: relative;
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.16);
+      border-radius: 4px;
+      box-shadow: 0 22px 50px rgba(47, 30, 26, 0.18);
+    }
+
+    .work-info {
+      max-width: 720px;
     }
 
     .work-title {
-      margin-top: 0;
-      margin-bottom: 8px;
+      margin: 0 0 18px;
       color: var(--accent-color);
-      font-size: 2em;
-      line-height: 1.3;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: 1.04;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    .work-title i {
+      font-weight: 500;
     }
 
     .work-meta {
-      color: #666;
+      margin-bottom: 34px;
+      padding-left: 18px;
+      border-left: 2px solid var(--accent-color);
+      color: var(--muted-color);
       font-size: var(--meta-size);
-      margin-bottom: 18px;
+      line-height: 1.75;
     }
 
     .intro {
-      margin-top: 16px;
-      margin-bottom: 0;
+      max-width: 680px;
+      margin: 0 0 17px;
+      color: #403a36;
+      font-size: clamp(16px, 1.25vw, 18px);
+      line-height: 1.86;
     }
 
     .section-block {
-      margin: 34px 0;
+      padding: 76px 0 22px;
+      border-top: 1px solid var(--border-color);
     }
 
     .section-heading {
-      font-size: 1.25em;
+      margin: 0 0 32px;
       color: var(--accent-color);
-      margin: 0 0 14px 0;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      text-transform: none;
+    }
+
+    .video-frame {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .video-embed {
       position: relative;
       width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-      padding-bottom: 74.7%;
       height: 0;
+      padding-bottom: 177.78%;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
       background: #000;
+      border-radius: 4px;
+      box-shadow: 0 22px 48px rgba(31, 23, 20, 0.16);
     }
 
     .video-embed iframe {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
     }
 
     .fallback-link {
+      margin-top: 18px;
       text-align: center;
-      margin-top: 12px;
       font-size: var(--meta-size);
     }
 
-    @media (max-width: 780px) {
-      .container {
-        margin: 16px auto;
-        padding: 22px 16px 28px 16px;
-        border-radius: 0;
+    .fallback-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .fallback-link a::after {
+      content: "↗";
+      font-size: 0.9em;
+    }
+
+    @media (hover: hover) and (min-width: 781px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
       }
 
-      .top-nav {
-        text-align: left;
+      .dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg) translateY(-1px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --page-padding: 24px;
+      }
+
+      .top-nav-wrap {
+        padding-top: 16px;
+      }
+
+      .work-page {
+        padding-top: 24px;
+        padding-bottom: 54px;
       }
 
       .work-hero {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-columns: minmax(210px, 310px) minmax(0, 1fr);
+        gap: 40px;
+        min-height: auto;
+        padding: 30px 0 58px;
       }
 
-      .poster {
-        max-width: 360px;
+      .poster-column::before {
+        top: 16px;
+        left: 16px;
       }
 
-      .video-embed {
-        max-width: 100%;
-        padding-bottom: 177.78%;
+      .work-title {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --page-padding: 18px;
+      }
+
+      .top-nav-wrap {
+        padding: 12px var(--page-padding) 0;
+      }
+
+      .top-nav {
+        justify-content: center;
+        font-size: 14px;
+      }
+
+      .dropdown-menu {
+        position: fixed;
+        top: 58px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        min-width: 0;
+      }
+
+      .work-page {
+        padding: 18px var(--page-padding) 48px;
+      }
+
+      .work-hero {
+        display: flex;
+        flex-direction: column;
+        gap: 46px;
+        padding: 24px 0 50px;
+      }
+
+      .poster-column {
+        width: min(82vw, 340px);
+        margin: 0 auto;
+      }
+
+      .poster-column::before {
+        top: 13px;
+        left: 13px;
+      }
+
+      .work-info {
+        width: 100%;
+      }
+
+      .work-title {
+        margin-bottom: 16px;
+        font-size: clamp(2.55rem, 13vw, 4rem);
+        line-height: 1.02;
+      }
+
+      .work-meta {
+        margin-bottom: 28px;
+        padding-left: 14px;
+        font-size: 14px;
+      }
+
+      .intro {
+        margin-bottom: 16px;
+        font-size: 16px;
+        line-height: 1.82;
+      }
+
+      .section-block {
+        padding-top: 50px;
+      }
+
+      .section-heading {
+        margin-bottom: 24px;
+        font-size: 2.35rem;
+      }
+
+      .video-frame {
+        width: min(100%, 430px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .top-nav {
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .work-title {
+        font-size: 2.7rem;
+      }
+
+      .poster-column {
+        width: 88vw;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="page">
 
-    <div class="top-nav">
-      <a href="index.html">CV</a> |
-      <div class="dropdown">
-        <span class="dropdown-toggle">Creative Works</span>
-        <div class="dropdown-menu">
-          <a href="peony.html">The Tale of the Peony</a>
-          <a href="painted-skin.html">Painted Skin</a>
+    <div class="top-nav-wrap">
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html">CV</a>
+
+        <span class="nav-separator">|</span>
+
+        <div class="dropdown" id="worksDropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="worksDropdownMenu"
+          >
+            Creative Works
+          </button>
+
+          <div class="dropdown-menu" id="worksDropdownMenu">
+            <a href="peony.html">The Tale of the Peony</a>
+            <a href="painted-skin.html">Painted Skin</a>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
 
-    <section id="painted-skin">
-      <div class="work-hero">
-        <div>
-          <img src="painted_skin_poster.jpg" alt="Poster of Painted Skin" class="poster">
-        </div>
+    <main class="work-page">
+      <section id="painted-skin">
 
-        <div>
-          <h1 class="work-title"><i>Painted Skin</i> 《画皮》</h1>
-
-          <div class="work-meta">
-            AI-generated experimental short film, 2026<br>
-            Co-directors: Jintao Sun and Yuqing Liu<br>
-            Sound Design: Wangqian Zhou
+        <div class="work-hero">
+          <div class="poster-column">
+            <img
+              src="painted_skin_poster.jpg"
+              alt="Poster of Painted Skin"
+              class="poster"
+            >
           </div>
 
-          <p class="intro">
-            <i>Painted Skin</i> is an AI-generated experimental short film adapted from “Painted Skin” in Pu Songling’s <i>Strange Tales from a Chinese Studio</i>. The film rewrites the story from a female perspective.
-          </p>
+          <div class="work-info">
+            <h1 class="work-title">
+              <i>Painted Skin</i> 《画皮》
+            </h1>
 
-          <p class="intro">
-            Continuing the xuan paper-inspired visual style of <i>The Tale of the Peony</i>, the work explores the combination of contemporary AI technologies with traditional Chinese aesthetics and cultural imagination.
-          </p>
+            <div class="work-meta">
+              AI-generated experimental short film, 2026<br>
+              Co-directors: Jintao Sun and Yuqing Liu<br>
+              Sound Design: Wangqian Zhou
+            </div>
 
-          <p class="intro">
-            Invited by Xiaohongshu, Jintao Sun and Yuqing Liu created the work for the Short Film Hot AI Training Camp. Circulating primarily on Douyin and Xiaohongshu, the work has received over 2 million views and 160,000 engagements across online platforms.
-          </p>
+            <p class="intro">
+              <i>Painted Skin</i> is an AI-generated experimental short film adapted from “Painted Skin” in Pu Songling’s <i>Strange Tales from a Chinese Studio</i>. The film rewrites the story from a female perspective.
+            </p>
+
+            <p class="intro">
+              Continuing the xuan paper-inspired visual style of <i>The Tale of the Peony</i>, the work explores the combination of contemporary AI technologies with traditional Chinese aesthetics and cultural imagination.
+            </p>
+
+            <p class="intro">
+              Invited by Xiaohongshu, Jintao Sun and Yuqing Liu created the work for the Short Film Hot AI Training Camp. Circulating primarily on Douyin and Xiaohongshu, the work has received over 2 million views and 160,000 engagements across online platforms.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="section-block">
-        <h2 class="section-heading">Video</h2>
+        <div class="section-block">
+          <h2 class="section-heading">Video</h2>
 
-        <div class="video-embed">
-          <iframe 
-            src="https://www.youtube.com/embed/FllyDsphYjs"
-            title="Painted Skin Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <div class="video-frame">
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/FllyDsphYjs"
+                title="Painted Skin Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="fallback-link">
+              <a
+                href="https://www.youtube.com/shorts/FllyDsphYjs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on YouTube
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="fallback-link">
-          <a href="https://www.youtube.com/shorts/FllyDsphYjs" target="_blank">
-            View on YouTube
-          </a>
-        </div>
-      </div>
-
-    </section>
+      </section>
+    </main>
 
   </div>
-<script>
-  function toggleDropdown(event) {
-    event.stopPropagation();
 
-    const menu = document.getElementById("worksDropdown");
+  <script>
+    const dropdown = document.getElementById("worksDropdown");
+    const dropdownButton = dropdown.querySelector(".dropdown-toggle");
 
-    if (menu.style.display === "block") {
-      menu.style.display = "none";
-    } else {
-      menu.style.display = "block";
-    }
-  }
+    dropdownButton.addEventListener("click", function (event) {
+      event.stopPropagation();
 
-  document.addEventListener("click", function () {
-    document.getElementById("worksDropdown").style.display = "none";
-  });
-</script>
+      const isOpen = dropdown.classList.toggle("is-open");
+      dropdownButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    dropdown.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function () {
+      dropdown.classList.remove("is-open");
+      dropdownButton.setAttribute("aria-expanded", "false");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        dropdown.classList.remove("is-open");
+        dropdownButton.setAttribute("aria-expanded", "false");
+        dropdownButton.focus();
+      }
+    });
+  </script>
 </body>
 </html>
