@@ -393,8 +393,32 @@ li{margin-bottom:9px;}
   section{margin:12px 0;padding:20px 16px;border-radius:14px;}
   h2{font-size:.94rem;margin-bottom:18px;}
   .section-title{font-size:1.2rem;}
-  .edu-row{display:block!important;}
-  .edu-row .meta-small{margin:2px 0 6px 22px;white-space:normal;}
+  .edu-row{
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-start!important;
+  gap:3px!important;
+  margin-bottom:14px;
+}
+
+.edu-row .meta-small{
+  display:inline-block;
+  margin:0 0 2px 22px;
+  padding:3px 9px;
+  border-radius:999px;
+  background:#f4e9ec;
+  color:#7b3f61;
+  font-size:12px;
+  line-height:1.45;
+  white-space:normal;
+}
+
+.edu-degree{
+  margin:-7px 0 17px 22px;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.55;
+}
   .pub-list,.poetry-list,.conf-list,.exp-list{padding-left:20px;}
   .skills-list{gap:12px;}
   .skills-list>div{min-width:0;padding:15px;}
