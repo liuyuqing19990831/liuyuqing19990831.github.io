@@ -393,32 +393,6 @@ li{margin-bottom:9px;}
   section{margin:12px 0;padding:20px 16px;border-radius:14px;}
   h2{font-size:.94rem;margin-bottom:18px;}
   .section-title{font-size:1.2rem;}
-  .edu-row{
-  display:flex!important;
-  flex-direction:column;
-  align-items:flex-start!important;
-  gap:3px!important;
-  margin-bottom:14px;
-}
-
-.edu-row .meta-small{
-  display:inline-block;
-  margin:0 0 2px 22px;
-  padding:3px 9px;
-  border-radius:999px;
-  background:#f4e9ec;
-  color:#7b3f61;
-  font-size:12px;
-  line-height:1.45;
-  white-space:normal;
-}
-
-.edu-degree{
-  margin:-7px 0 17px 22px;
-  color:var(--muted);
-  font-size:13.5px;
-  line-height:1.55;
-}
   .pub-list,.poetry-list,.conf-list,.exp-list{padding-left:20px;}
   .skills-list{gap:12px;}
   .skills-list>div{min-width:0;padding:15px;}
@@ -495,7 +469,87 @@ li{margin-bottom:9px;}
     height:144px;
   }
 }
+/* ===== Mobile timeline alignment fix ===== */
+@media (max-width: 900px) {
 
+  .exp-list {
+    padding-left: 0 !important;
+    list-style: none;
+  }
+
+  .edu-row {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+
+    width: 100%;
+    margin: 0 0 18px;
+    padding-left: 18px;
+  }
+
+  /* 统一的小圆点 */
+  .edu-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-color);
+  }
+
+  /* 去掉原来 li 自带的项目符号和缩进 */
+  .edu-row .edu-school,
+  .edu-row .edu-school li {
+    display: block;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .edu-row .edu-school {
+    line-height: 1.55;
+  }
+
+  /* 所有日期统一位置和样式 */
+  .edu-row .meta-small {
+    display: block;
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+
+    background: none !important;
+    border-radius: 0 !important;
+
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  /* Education 中的学位说明 */
+  .edu-degree {
+    margin: -10px 0 18px 18px !important;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  /* Knowledge Exchanges 中标题下面的说明 */
+  .exp-list > .meta-small {
+    display: block;
+    margin: -10px 0 18px 18px !important;
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+}
 </style>
 </head>
 <body>
