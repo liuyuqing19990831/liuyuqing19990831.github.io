@@ -3,137 +3,554 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Today’s Choice — Yuqing LIU</title>
-  <style>
-    :root{
-      --ink:#20242d;
-      --accent:#7b3f61;
-      --accent2:#b76e79;
-      --paper:#f6f1ed;
-      --card:rgba(255,255,255,.82);
-      --line:rgba(90,62,72,.14);
-      --muted:#6f6870;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--ink);
-      font-family:'Noto Sans','Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif;
-      background:
-        radial-gradient(circle at 12% 8%,rgba(183,110,121,.15),transparent 28%),
-        radial-gradient(circle at 88% 2%,rgba(123,63,97,.11),transparent 24%),
-        linear-gradient(180deg,#fbf8f5 0%,#f4efeb 100%);
-      line-height:1.7;
-    }
-    a{color:var(--accent);text-decoration:none}
-    a:hover{color:#4f2940}
-    .nav{
-      position:sticky;top:0;z-index:20;
-      display:flex;justify-content:flex-end;align-items:center;gap:10px;
-      padding:15px clamp(20px,6vw,90px);
-      background:rgba(255,255,255,.84);
-      border-bottom:1px solid var(--line);
-      backdrop-filter:blur(18px);
-    }
-    .nav a,.dropdown-toggle{font-size:14px;font-weight:700;letter-spacing:.04em}
-    .dropdown{position:relative;display:inline-block}
-    .dropdown-toggle{cursor:pointer;color:var(--accent);background:none;border:0;padding:0;font:inherit}
-    .dropdown-toggle::after{content:" ▾";font-size:.85em}
-    .dropdown-menu{display:none;position:absolute;right:0;top:100%;min-width:220px;padding:8px 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 40px rgba(51,34,44,.16);text-align:left}
-    .dropdown-menu a{display:block;padding:8px 14px;white-space:nowrap}
-    .dropdown-menu a:hover{background:#f3f0f2}
-    main{width:min(1180px,calc(100% - 40px));margin:0 auto;padding:70px 0 80px}
-    .hero{
-      display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);
-      gap:clamp(36px,6vw,84px);align-items:center;
-      min-height:570px;
-    }
-    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--accent2);text-transform:uppercase}
-    h1{
-      margin:16px 0 10px;
-      font:700 clamp(3.4rem,8vw,6.8rem)/.92 Georgia,'Times New Roman',serif;
-      letter-spacing:-.055em;color:#25212a;
-    }
-    .cn{display:block;margin-top:12px;font-size:clamp(1.1rem,2vw,1.45rem);font-weight:600;color:var(--accent);letter-spacing:.08em}
-    .lead{max-width:610px;margin:26px 0 0;font-size:1.05rem;color:var(--muted)}
-    .meta{margin:22px 0 0;color:var(--muted);font-size:14px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .button{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:800}
-    .primary{background:var(--accent);color:#fff}.primary:hover{color:#fff;background:#5f314c}
-    .secondary{background:#fff;border:1px solid var(--line)}
-    .browser{
-      overflow:hidden;border:1px solid var(--line);border-radius:22px;background:#fff;
-      box-shadow:0 24px 60px rgba(72,48,59,.16);
-    }
-    .browser-bar{height:42px;display:flex;align-items:center;gap:7px;padding:0 15px;background:#faf7f5;border-bottom:1px solid var(--line)}
-    .dot{width:9px;height:9px;border-radius:50%;background:#d6c7cd}
-    .address{margin-left:8px;flex:1;padding:5px 12px;border-radius:999px;background:#fff;color:#8c8287;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    iframe{display:block;width:100%;height:610px;border:0;background:#fff}
+  <title>Today’s Choice | Yuqing LIU</title>
 
-    footer{padding:28px 20px 46px;text-align:center;color:var(--muted);font-size:13px}
-    @media(max-width:900px){
-      main{width:min(100% - 28px,720px);padding-top:42px}
-      .hero{grid-template-columns:1fr;min-height:auto}
-      h1{font-size:clamp(3rem,17vw,5rem)}
-      iframe{height:580px}
+  <style>
+    :root {
+      --text-color: #24211f;
+      --muted-color: #77706c;
+      --accent-color: #7b3138;
+      --accent-dark: #552126;
+      --background-color: #f7f3ee;
+      --section-color: #fffdf9;
+      --border-color: rgba(68, 50, 45, 0.14);
+      --soft-color: #eee5dd;
+      --shadow-color: rgba(54, 39, 34, 0.12);
+      --body-size: 16px;
+      --meta-size: 15px;
+      --page-padding: clamp(24px, 5vw, 76px);
     }
-    @media(max-width:520px){
-      .nav{padding:13px 15px;justify-content:center}
-      .dropdown-menu{right:50%;transform:translateX(50%);min-width:min(220px,calc(100vw - 32px))}
-      main{width:calc(100% - 22px)}
-      iframe{height:520px}
-      .browser{border-radius:16px}
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--background-color);
+      color: var(--text-color);
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
+      font-size: var(--body-size);
+      line-height: 1.78;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition:
+        color 0.2s ease,
+        opacity 0.2s ease,
+        background 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--section-color);
+    }
+
+    .top-nav-wrap {
+      width: 100%;
+      padding: 22px var(--page-padding) 0;
+      background: var(--section-color);
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 11px;
+      max-width: 1280px;
+      margin: 0 auto;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-separator {
+      color: #b8aaa2;
+      font-weight: 400;
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      appearance: none;
+      border: none;
+      background: none;
+      margin: 0;
+      padding: 8px 0;
+      color: var(--accent-color);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .dropdown-toggle::after {
+      content: "⌄";
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.9em;
+      transform: translateY(-1px);
+      transition: transform 0.2s ease;
+    }
+
+    .dropdown.is-open .dropdown-toggle::after {
+      transform: rotate(180deg) translateY(-1px);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 1000;
+      min-width: 230px;
+      padding: 8px;
+      background: rgba(255, 253, 249, 0.98);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 18px 42px var(--shadow-color);
+      backdrop-filter: blur(12px);
+    }
+
+    .dropdown.is-open .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--text-color);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--soft-color);
+      color: var(--accent-color);
+    }
+
+    .work-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 44px var(--page-padding) 80px;
+    }
+
+    .work-hero {
+      display: grid;
+      grid-template-columns: minmax(280px, 430px) minmax(0, 1fr);
+      gap: clamp(38px, 6vw, 88px);
+      align-items: center;
+      min-height: calc(100vh - 130px);
+      padding: 38px 0 70px;
+    }
+
+    .work-info {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .work-label {
+      margin-bottom: 14px;
+      color: var(--muted-color);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .work-title {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--accent-color);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      line-height: 1.02;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .english-title {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .chinese-title {
+      display: inline-block;
+      white-space: nowrap;
+      font-family:
+        "Songti SC",
+        "STSong",
+        "SimSun",
+        serif;
+      font-size: 0.42em;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .work-meta {
+      margin-bottom: 32px;
+      padding-left: 18px;
+      border-left: 2px solid var(--accent-color);
+      color: var(--muted-color);
+      font-size: var(--meta-size);
+      line-height: 1.75;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 0 0 17px;
+      color: #403a36;
+      font-size: clamp(16px, 1.25vw, 18px);
+      line-height: 1.86;
+    }
+
+    .actions {
+      margin-top: 28px;
+    }
+
+    .visit-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      color: #fff;
+      background: var(--accent-color);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .visit-button:hover {
+      color: #fff;
+      background: var(--accent-dark);
+    }
+
+    .browser-column {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .browser {
+      overflow: hidden;
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      box-shadow: 0 22px 50px rgba(47, 30, 26, 0.18);
+    }
+
+    .browser-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 15px;
+      background: #faf6f2;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d8cbc5;
+    }
+
+    .address {
+      flex: 1;
+      min-width: 0;
+      margin-left: 8px;
+      padding: 5px 12px;
+      overflow: hidden;
+      color: #8c8287;
+      background: #fff;
+      border: 1px solid rgba(68, 50, 45, 0.08);
+      border-radius: 999px;
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .browser iframe {
+      display: block;
+      width: 100%;
+      height: 610px;
+      border: 0;
+      background: #fff;
+    }
+
+    footer {
+      padding: 28px 20px 46px;
+      color: var(--muted-color);
+      background: var(--section-color);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (hover: hover) and (min-width: 781px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-toggle::after {
+        transform: rotate(180deg) translateY(-1px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --page-padding: 24px;
+      }
+
+      .top-nav-wrap {
+        padding-top: 16px;
+      }
+
+      .work-page {
+        padding-top: 24px;
+        padding-bottom: 54px;
+      }
+
+      .work-hero {
+        grid-template-columns: 1fr;
+        gap: 46px;
+        min-height: auto;
+        padding: 30px 0 58px;
+      }
+
+      .work-info {
+        max-width: 760px;
+      }
+
+      .browser iframe {
+        height: 580px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --page-padding: 18px;
+      }
+
+      .top-nav-wrap {
+        padding: 12px var(--page-padding) 0;
+      }
+
+      .top-nav {
+        justify-content: center;
+        font-size: 14px;
+      }
+
+      .dropdown-menu {
+        position: fixed;
+        top: 58px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        min-width: 0;
+      }
+
+      .work-page {
+        padding: 18px var(--page-padding) 48px;
+      }
+
+      .work-hero {
+        gap: 40px;
+        padding: 24px 0 50px;
+      }
+
+      .work-title {
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        font-size: clamp(2.4rem, 12vw, 4rem);
+        text-align: center;
+      }
+
+      .work-label {
+        text-align: center;
+      }
+
+      .chinese-title {
+        width: 100%;
+        font-size: 0.42em;
+        text-align: center;
+      }
+
+      .work-meta {
+        margin-bottom: 28px;
+        padding-left: 14px;
+        font-size: 14px;
+      }
+
+      .intro {
+        font-size: 16px;
+        line-height: 1.82;
+      }
+
+      .actions {
+        text-align: center;
+      }
+
+      .browser iframe {
+        height: 520px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .top-nav {
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .work-title {
+        font-size: 2.15rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <nav class="nav">
-    <a href="index.html">CV</a> |
-    <div class="dropdown">
-      <button class="dropdown-toggle" onclick="toggleDropdown(event)">Creative Works</button>
-      <div class="dropdown-menu" id="worksDropdown">
-        <a href="peony.html">The Tale of the Peony</a>
-        <a href="painted-skin.html">Painted Skin</a>
-        <a href="todays-choice.html">Today’s Choice</a>
-      </div>
+  <div class="page">
+
+    <div class="top-nav-wrap">
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html">CV</a>
+
+        <span class="nav-separator">|</span>
+
+        <div class="dropdown" id="worksDropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="worksDropdownMenu"
+          >
+            Creative Works
+          </button>
+
+          <div class="dropdown-menu" id="worksDropdownMenu">
+            <a href="peony.html">The Tale of the Peony</a>
+            <a href="painted-skin.html">Painted Skin</a>
+            <a href="todays-choice.html">Today’s Choice</a>
+          </div>
+        </div>
+      </nav>
     </div>
-  </nav>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Interactive Website · 2026</div>
-        <h1>Today’s<br>Choice</h1>
-        <span class="cn">今日宜选</span>
-        <p class="lead">An AI-powered platform that draws on traditional Chinese <i>bazi</i> and <i>feng shui</i> practices, alongside image analysis, to offer guidance for everyday decisions.</p>
-        <div class="meta">Creator: Yuqing Liu · Chinese / English · Text and image input</div>
-        <div class="actions">
-          <a class="button primary" href="https://jinri-yixuan-de1c-six.vercel.app/" target="_blank" rel="noopener noreferrer">Open Today’s Choice ↗</a>
+    <main class="work-page">
+      <section id="todays-choice">
+
+        <div class="work-hero">
+          <div class="work-info">
+            <div class="work-label">Interactive Website · 2026</div>
+
+            <h1 class="work-title">
+              <span class="english-title">Today’s Choice</span>
+              <span class="chinese-title">今日宜选</span>
+            </h1>
+
+            <div class="work-meta">
+              Creator: Yuqing Liu<br>
+              Bilingual interface with text and image input
+            </div>
+
+            <p class="intro">
+              An AI-powered platform inspired by <i>bazi</i>, a traditional Chinese system that interprets a person’s birth time through its relation to cosmic and elemental patterns. The website uses this framework to offer guidance for everyday decisions through text and image input.
+            </p>
+
+
+            <div class="actions">
+              <a
+                class="visit-button"
+                href="https://jinri-yixuan-de1c-six.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Today’s Choice ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="browser-column">
+            <div class="browser" aria-label="Live preview of Today’s Choice">
+              <div class="browser-bar">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="address">jinri-yixuan-de1c-six.vercel.app</span>
+              </div>
+
+              <iframe
+                src="https://jinri-yixuan-de1c-six.vercel.app/"
+                title="Today’s Choice live website"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="browser" aria-label="Live preview of Today’s Choice">
-        <div class="browser-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="address">jinri-yixuan-de1c-six.vercel.app</span>
-        </div>
-        <iframe src="https://jinri-yixuan-de1c-six.vercel.app/" title="Today’s Choice live website" loading="lazy"></iframe>
-      </div>
-    </section>
+      </section>
+    </main>
 
-  </main>
+    <footer>© 2026 Yuqing Liu</footer>
+  </div>
 
-  <footer>© 2026 Yuqing Liu</footer>
-<script>
-  function toggleDropdown(event){
-    event.stopPropagation();
-    const menu=document.getElementById('worksDropdown');
-    menu.style.display=menu.style.display==='block'?'none':'block';
-  }
-  document.addEventListener('click',function(){
-    document.getElementById('worksDropdown').style.display='none';
-  });
-</script>
+  <script>
+    const dropdown = document.getElementById("worksDropdown");
+    const dropdownButton = dropdown.querySelector(".dropdown-toggle");
+
+    dropdownButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      const isOpen = dropdown.classList.toggle("is-open");
+      dropdownButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    dropdown.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function () {
+      dropdown.classList.remove("is-open");
+      dropdownButton.setAttribute("aria-expanded", "false");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        dropdown.classList.remove("is-open");
+        dropdownButton.setAttribute("aria-expanded", "false");
+        dropdownButton.focus();
+      }
+    });
+  </script>
 </body>
 </html>
