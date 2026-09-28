@@ -583,23 +583,54 @@ li{margin-bottom:9px;}
   }
 }
 
-/* ===== Research Projects: fully left-aligned ===== */
+/* ===== Research Projects ===== */
+#research-projects .research-project-list {
+  margin: 0;
+  padding-left: 22px;
+  list-style-type: disc;
+}
 #research-projects .research-project-item {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
+  padding-left: 0;
 }
 #research-projects .research-project-item:last-child {
   margin-bottom: 0;
 }
+#research-projects .research-project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  width: 100%;
+}
 #research-projects .research-project-title {
+  flex: 1 1 auto;
+  min-width: 0;
   font-weight: 700;
   line-height: 1.55;
-  margin-bottom: 3px;
+}
+#research-projects .research-project-date {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: var(--meta-size);
 }
 #research-projects .meta-small {
   display: block;
   margin: 1px 0;
   padding: 0;
   text-align: left;
+}
+@media (max-width: 900px) {
+  #research-projects .research-project-list {
+    padding-left: 20px;
+  }
+  #research-projects .research-project-head {
+    gap: 12px;
+  }
+  #research-projects .research-project-date {
+    font-size: 12.5px;
+  }
 }
 
 </style>
@@ -898,27 +929,36 @@ Youth Is More Beautiful than Cherry Blossoms
 
 <section id="research-projects">
   <h2>RESEARCH PROJECTS</h2>
+  <ul class="research-project-list">
 
-  <div class="research-project-item">
-    <div class="research-project-title">Imagined Wards: A VR Spatial Narrative of Alzheimer’s Disease</div>
-    <div class="meta-small">Sep 2026 – Present</div>
-    <div class="meta-small">HKU Arts Tech Lab Seed Funding</div>
-    <div class="meta-small"><i>Principal Investigator (PI); Developing a VR spatial narrative exploring the lived experience of Alzheimer’s disease.</i></div>
-  </div>
+    <li class="research-project-item">
+      <div class="research-project-head">
+        <span class="research-project-title">Imagined Wards: A VR Spatial Narrative of Alzheimer’s Disease</span>
+        <span class="research-project-date">Sep 2026 – Present</span>
+      </div>
+      <span class="meta-small">HKU Arts Tech Lab Seed Funding</span>
+      <span class="meta-small"><i>Principal Investigator (PI); Developing a VR spatial narrative exploring the lived experience of Alzheimer’s disease.</i></span>
+    </li>
 
-  <div class="research-project-item">
-    <div class="research-project-title">Value Production and Enhancement Pathways of Original Creativity in Chinese Cinema in the Era of Digital Intelligence</div>
-    <div class="meta-small">Aug 2025 – Present</div>
-    <div class="meta-small">National Social Science Fund of China (NSSFC)</div>
-    <div class="meta-small"><i>Collaborator; led by Prof. Xiaofang Cai, Beijing Normal University</i></div>
-  </div>
+    <li class="research-project-item">
+      <div class="research-project-head">
+        <span class="research-project-title">Value Production and Enhancement Pathways of Original Creativity in Chinese Cinema in the Era of Digital Intelligence</span>
+        <span class="research-project-date">Aug 2025 – Present</span>
+      </div>
+      <span class="meta-small">National Social Science Fund of China (NSSFC)</span>
+      <span class="meta-small"><i>Collaborator; led by Prof. Xiaofang Cai, Beijing Normal University</i></span>
+    </li>
 
-  <div class="research-project-item">
-    <div class="research-project-title">Transmedia Storytelling: A Discussion of Literary Documentaries and the “Canonization” of Chinese Contemporary Literature</div>
-    <div class="meta-small">Jun 2023 – Jun 2024</div>
-    <div class="meta-small">M.A. Thesis</div>
-    <div class="meta-small"><i>Supervisor: Prof. Lili Wang, Department of Chinese Language and Literature, Peking University</i></div>
-  </div>
+    <li class="research-project-item">
+      <div class="research-project-head">
+        <span class="research-project-title">Transmedia Storytelling: A Discussion of Literary Documentaries and the “Canonization” of Chinese Contemporary Literature</span>
+        <span class="research-project-date">Jun 2023 – Jun 2024</span>
+      </div>
+      <span class="meta-small">M.A. Thesis</span>
+      <span class="meta-small"><i>Supervisor: Prof. Lili Wang, Department of Chinese Language and Literature, Peking University</i></span>
+    </li>
+
+  </ul>
 </section>
 
     <section>
