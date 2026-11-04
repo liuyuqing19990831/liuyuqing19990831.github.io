@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="News and press coverage of Yuqing Liu.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="News and press coverage of Yuqing Liu." name="description"/>
 <title>News &amp; Press | Yuqing LIU</title>
 <style>
 :root{--ink:#24211f;--muted:#756e69;--burgundy:#7b3138;--burgundy-dark:#552126;--paper:#fffdf9;--line:#e6dcd5;--soft:#f7f3ee}
@@ -40,13 +41,37 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 .empty{display:none;color:var(--muted);padding:30px 0;font-size:14px} [hidden]{display:none!important}
 @media(max-width:940px){.press-row{grid-template-columns:87px minmax(0,1fr) minmax(140px,200px);gap:11px}.title-en{font-size:13px}.title-original{font-size:12px}}
 @media(max-width:650px){.top-nav{min-height:58px;justify-content:center}.hero{padding-top:45px;padding-bottom:35px}.archive{padding-top:23px;padding-bottom:65px}.search{width:100%}.year-group{margin-top:29px}.press-row{grid-template-columns:minmax(0,1fr) auto;gap:7px 12px;min-height:65px;padding:14px 0}.date{grid-column:1;grid-row:1;align-self:start;font-size:11px}.outlet{grid-column:2;grid-row:1;max-width:54vw;text-align:right;font-size:11px;font-weight:500;color:var(--muted)}.headline{grid-column:1/-1;grid-row:2;gap:4px}.title-en{font-size:13px}.title-original{font-size:12px}.dropdown-menu{right:-45px}}
+
+/* Featured editorial article, using the original HKU Lead cover image. */
+.featured-wrap{padding-top:36px}
+.featured-story{display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:clamp(24px,4vw,52px);align-items:center;padding-bottom:38px;border-bottom:1px solid var(--line)}
+.featured-image{display:block;overflow:hidden;border-radius:4px;background:#e4e5e8;aspect-ratio:16/9}
+.featured-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .3s ease}
+.featured-image:hover img{transform:scale(1.02)}
+.featured-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:13px;color:var(--muted);font-size:12px;letter-spacing:.02em}
+.featured-label{color:var(--burgundy);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.featured-heading{font-family:Georgia,"Times New Roman",serif;color:var(--ink);font-size:clamp(1.6rem,2.8vw,2.7rem);line-height:1.2;font-weight:500;letter-spacing:-.027em;margin:0 0 13px}
+.featured-heading a:hover{color:var(--burgundy)}
+.featured-original{display:block;color:var(--muted);font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.featured-original:hover{color:var(--burgundy)}
+@media(max-width:700px){.featured-wrap{padding-top:25px}.featured-story{grid-template-columns:1fr;gap:18px;padding-bottom:29px}.featured-heading{font-size:clamp(1.55rem,6.1vw,2rem)}.featured-meta{margin-bottom:9px}.featured-original{font-size:13px}}
 </style>
 </head>
 <body>
-<header class="nav-wrap"><nav class="top-nav wrap" aria-label="Main navigation"><a href="index.html">CV</a><span class="nav-separator">|</span><div class="dropdown" id="worksDropdown"><button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="worksDropdownMenu">Creative Works</button><div class="dropdown-menu" id="worksDropdownMenu"><a href="peony.html">The Tale of the Peony</a><a href="painted-skin.html">Painted Skin</a></div></div><span class="nav-separator">|</span><a href="news.html" class="active" aria-current="page">News</a></nav></header>
+<header class="nav-wrap"><nav aria-label="Main navigation" class="top-nav wrap"><a href="index.html">CV</a><span class="nav-separator">|</span><div class="dropdown" id="worksDropdown"><button aria-controls="worksDropdownMenu" aria-expanded="false" class="dropdown-toggle" type="button">Creative Works</button><div class="dropdown-menu" id="worksDropdownMenu"><a href="peony.html">The Tale of the Peony</a><a href="painted-skin.html">Painted Skin</a></div></div><span class="nav-separator">|</span><a aria-current="page" class="active" href="news.html">News</a></nav></header>
 <main><header class="hero wrap"><h1>News &amp; Press</h1></header>
-<div class="archive wrap"><div class="controls"><input class="search" id="search" type="search" aria-label="Search articles in English or Chinese" placeholder="Search articles / 搜索新闻…" autocomplete="off"></div>
-<section class="year-group" aria-label="Articles from 2026"><h2 class="year">2026</h2>
+<div class="featured-wrap wrap">
+<article class="featured-story news-item" data-search="02 Oct 2026 HKU Lead When AI Meets Ancient Crafts: How an HKUer Gave Voice to a Forgotten Tang Poetess 我想展现AI作为新媒介的特质 港大学生以唐代诗人为题材的AI短片获国际影展殊荣 The Tale of the Peony 牡丹記 牡丹记 刘雨晴 Liu Yuqing">
+<a class="featured-image" href="https://lead.hku.hk/en/article/2026/10/liu-yuqing-tale-of-the-peony/" target="_blank" rel="noopener noreferrer" aria-label="Read the featured HKU Lead article"><img src="https://lead.hku.hk/media/jxgnmc24/lead-headers-liu-yuqing.png" alt="Portrait photograph from the HKU Lead feature" loading="eager" decoding="async"></a>
+<div class="featured-body">
+<div class="featured-meta"><span class="featured-label">Featured</span><time datetime="2026-10-02">02 Oct 2026</time><span>HKU Lead</span></div>
+<h2 class="featured-heading"><a href="https://lead.hku.hk/en/article/2026/10/liu-yuqing-tale-of-the-peony/" target="_blank" rel="noopener noreferrer">When AI Meets Ancient Crafts: How an HKUer Gave Voice to a Forgotten Tang Poetess</a></h2>
+<a class="featured-original" lang="zh" href="https://lead.hku.hk/en/article/2026/10/liu-yuqing-tale-of-the-peony/" target="_blank" rel="noopener noreferrer">“我想展现AI作为新媒介的特质”：港大学生以唐代诗人为题材的AI短片获国际影展殊荣</a>
+</div>
+</article>
+</div>
+<div class="archive wrap"><div class="controls"><input aria-label="Search articles in English or Chinese" autocomplete="off" class="search" id="search" placeholder="Search articles / 搜索新闻…" type="search"/></div>
+<section aria-label="Articles from 2026" class="year-group"><h2 class="year">2026</h2>
 <article class="press-row news-item" data-search="2026-10-08 MEGA 2026 Honours Young Creators Exploring New Forms of Storytelling  Xi’an Jiaotong-Liverpool University The Tale of the Peony 牡丹记 牡丹記 Liu Yuqing 刘雨晴">
 <time class="date" datetime="2026-10-08">08 Oct 2026</time>
 <a class="headline" href="https://www.xjtlu.edu.cn/en/news/2026/10/2026-mega-honours-young-creators-exploring-new-forms-of-storytelling" rel="noopener noreferrer" target="_blank" title="MEGA 2026 Honours Young Creators Exploring New Forms of Storytelling">
@@ -54,6 +79,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 </a>
 <span class="outlet">Xi’an Jiaotong-Liverpool University</span>
 </article>
+
 <article class="press-row news-item" data-search="02 Oct 2026 When AI Meets Ancient Crafts: How an HKUer Gave Voice to a Forgotten Tang Poetess “我想展现AI作为新媒介的特质”：港大学生以唐代诗人为题材的AI短片获国际影展殊荣 HKU Lead ">
 <time class="date" datetime="2026-10-02">02 Oct 2026</time>
 <a class="headline" href="https://lead.hku.hk/en/article/2026/10/liu-yuqing-tale-of-the-peony/" rel="noopener noreferrer" target="_blank" title="When AI Meets Ancient Crafts: How an HKUer Gave Voice to a Forgotten Tang Poetess · “我想展现AI作为新媒介的特质”：港大学生以唐代诗人为题材的AI短片获国际影展殊荣">
@@ -133,7 +159,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">Wang Tashan</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2025"><h2 class="year">2025</h2>
+<section aria-label="Articles from 2025" class="year-group"><h2 class="year">2025</h2>
 <article class="press-row news-item" data-search="2025-12-26 Liu Yuqing: Bringing Poetry and Life Together Through Poetry in the Human World 刘雨晴：在“诗歌人间”中让诗歌与生活交融 Sohu  Yuqing Liu 刘雨晴">
 <time class="date" datetime="2025-12-26">26 Dec 2025</time>
 <a class="headline" href="https://www.sohu.com/a/969433328_121956422" rel="noopener noreferrer" target="_blank" title="Liu Yuqing: Bringing Poetry and Life Together Through Poetry in the Human World · 刘雨晴：在“诗歌人间”中让诗歌与生活交融">
@@ -149,7 +175,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">Shenzhen Special Zone Daily</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2024"><h2 class="year">2024</h2>
+<section aria-label="Articles from 2024" class="year-group"><h2 class="year">2024</h2>
 <article class="press-row news-item" data-search="2024-11-17 My Journey in Poetry: A Hand Wandering Through the World 【我的诗歌创作之路】在世间游走的手 Taishan College of Science and Technology  Yuqing Liu 刘雨晴">
 <time class="date" datetime="2024-11-17">17 Nov 2024</time>
 <a class="headline" href="https://mp.weixin.qq.com/s/UTYVzgqugu3S8cEDQC0N3g" rel="noopener noreferrer" target="_blank" title="My Journey in Poetry: A Hand Wandering Through the World · 【我的诗歌创作之路】在世间游走的手">
@@ -165,7 +191,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">Journal of Literature</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2023"><h2 class="year">2023</h2>
+<section aria-label="Articles from 2023" class="year-group"><h2 class="year">2023</h2>
 <article class="press-row news-item" data-search="2023-08-09 Publication of Youth Is More Beautiful than Cherry Blossoms: Selected Poems by Award-Winning Writers 《青春比樱花更美：樱花诗赛获奖诗人作品选》出版 Sohu ">
 <time class="date" datetime="2023-08-09">09 Aug 2023</time>
 <a class="headline" href="https://www.sohu.com/a/710600776_121119374" rel="noopener noreferrer" target="_blank" title="Publication of Youth Is More Beautiful than Cherry Blossoms: Selected Poems by Award-Winning Writers · 《青春比樱花更美：樱花诗赛获奖诗人作品选》出版">
@@ -181,7 +207,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">Poetry Magazine</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2022"><h2 class="year">2022</h2>
+<section aria-label="Articles from 2022" class="year-group"><h2 class="year">2022</h2>
 <article class="press-row news-item" data-search="2022-08-26 Liu Yuqing: In the Cage, Unnecessary Love Is Kept 刘雨晴：笼子里，关着非必要的爱 China Urban News  Yuqing Liu 刘雨晴">
 <time class="date" datetime="2022-08-26">26 Aug 2022</time>
 <a class="headline" href="https://www.zdushi.com/news/show_2756694.html" rel="noopener noreferrer" target="_blank" title="Liu Yuqing: In the Cage, Unnecessary Love Is Kept · 刘雨晴：笼子里，关着非必要的爱">
@@ -190,7 +216,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">China Urban News</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2019"><h2 class="year">2019</h2>
+<section aria-label="Articles from 2019" class="year-group"><h2 class="year">2019</h2>
 <article class="press-row news-item" data-search="2019-05-28 Peking University Students See the World: Photography Submission Call 活动 | “北大人看世界”摄影征集 PKU and the World ">
 <time class="date" datetime="2019-05-28">28 May 2019</time>
 <a class="headline" href="https://mp.weixin.qq.com/s/F-WlCg8MMtILzMjYQzSXqg" rel="noopener noreferrer" target="_blank" title="Peking University Students See the World: Photography Submission Call · 活动 | “北大人看世界”摄影征集">
@@ -199,7 +225,7 @@ h1{margin:0;font-size:clamp(3.2rem,7.8vw,6.7rem);line-height:1.05;letter-spacing
 <span class="outlet">PKU and the World</span>
 </article>
 </section>
-<section class="year-group" aria-label="Articles from 2018"><h2 class="year">2018</h2>
+<section aria-label="Articles from 2018" class="year-group"><h2 class="year">2018</h2>
 <article class="press-row news-item" data-search="2018-10-27 Interview: Kitsch Youth, the Legendary Lucky Star of PKU Theater Stars 专访 | 刻奇青年：传说中的欧气之光？剧星里最奇妙的存在 PKU Theater Stars  Yuqing Liu 刘雨晴">
 <time class="date" datetime="2018-10-27">27 Oct 2018</time>
 <a class="headline" href="https://mp.weixin.qq.com/s/MJiK7Y2m7aVbHsiuvW70mA" rel="noopener noreferrer" target="_blank" title="Interview: Kitsch Youth, the Legendary Lucky Star of PKU Theater Stars · 专访 | 刻奇青年：传说中的欧气之光？剧星里最奇妙的存在">
